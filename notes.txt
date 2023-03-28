@@ -1,0 +1,28 @@
+# MAIN .htaccess
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Redirect www to non-www (and HTTPS)
+    RewriteCond %{HTTP_HOST} ^www\.(.+?)\.?$ [NC]
+    RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+    # Redirect HTTP to HTTPS (already non-www)
+    RewriteCond %{HTTPS} off 
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+    # Rewrite everything to the "public" subdirectory
+    RewriteRule (.*) public/$1 [L]   
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header set Content-Security-Policy: "default-src 'self'; font-src https://fonts.gstatic.com; style-src 'self' https://fonts.googleapis.com; img-src 'self'; child-src 'none';"
+
+    Header set Strict-Transport-Security: "max-age=31536000; includeSubDomains; preload" env=HTTPS
+
+    Header set X-Frame-Options: DENY
+
+    Header set X-Content-Type-Options: nosniff
+
+    Header set Referrer-Policy: strict-origin-when-cross-origin
+</IfModule>

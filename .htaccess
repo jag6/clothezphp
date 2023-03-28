@@ -1,0 +1,15 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Rewrite everything to the "public" subdirectory
+    RewriteRule (.*) public/$1 [L]   
+
+    Redirect 301 /clothez/admin/listingslist /clothez/admin/listings-list
+    Redirect 301 /clothez/admin/listingedit /clothez/admin/listing-edit
+    Redirect 301 /clothez/admin/bannerslist /clothez/admin/banners-list
+    Redirect 301 /clothez/admin/banneredit /clothez/admin/banner-edit
+</IfModule>
+
+<IfModule mod_headers.c>
+
+</IfModule>
