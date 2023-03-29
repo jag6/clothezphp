@@ -8,12 +8,12 @@
 
         //register user
         public function register($form_data){
-            $this -> db -> query('INSERT INTO users (first_name, last_name, username, email, phone_number, password) VALUES (:first_name, :last_name, :username, :email, :password');
+            $this -> db -> query('INSERT INTO users (first_name, last_name, username, email, password) VALUES (:first_name, :last_name, :username, :email, :password');
             //bind values
             $this -> db -> bind(':first_name', $form_data['first_name']);
             $this -> db -> bind(':last_name', $form_data['last_name']);
             $this -> db -> bind(':username', $form_data['username']);
-            $this -> db -> bind(':phone_number', $form_data['phone_number']);
+            $this -> db -> bind(':email', $form_data['email']);
             $this -> db -> bind(':password', $form_data['password']);
 
             //execute

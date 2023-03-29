@@ -1,11 +1,11 @@
 <?php 
     class Admin extends Controller {
         public function __construct(){
-            //if(!isLoggedInAndAdmin()){
-              //  redirect('');
-            //}
+            if(!isLoggedInAndAdmin()){
+                redirect('');
+            }
 
-            //$this -> userModel = $this -> model('User');
+            $this -> userModel = $this -> model('User');
         }
 
         public function index(){

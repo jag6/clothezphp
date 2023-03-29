@@ -69,7 +69,7 @@ window.addEventListener('click', (e) => {
 
 
 //chatbox
-if(document.querySelector('#open-poopup')) {
+if(document.querySelector('#open-popup')) {
     const openPU = document.getElementById('open-popup');
     const chatPU = document.getElementById('chat-popup');
     const closePU = document.getElementById('close-popup');

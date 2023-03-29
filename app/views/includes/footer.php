@@ -1,5 +1,6 @@
 </main>
     <?php if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 'admin') : ?>
+    <?php else : ?>
         <button class="open-popup" id="open-popup"><i class="fas fa-phone"></i></button>
         <div id="chat-popup" class="chat-popup">
             <ul class="contact-icons">

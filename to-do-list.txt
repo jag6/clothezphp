@@ -1,5 +1,5 @@
 1. Create user
 2. Upload listings
-    -fix listing + listings pages
+    -fix index page
 3. Test out cart
     -fix cart page

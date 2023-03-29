@@ -5,7 +5,7 @@
 <div id="dashboard-menu" class="dashboard-menu">
     <ul>
         <li class="dashboard-link">
-            <a href="<?php echo URLROOT; ?>/admin/dashboard"><span><i class="fa-solid fa-chart-simple"></i></span>Overview</a>
+            <a href="<?php echo URLROOT; ?>/admin"><span><i class="fa-solid fa-chart-simple"></i></span>Overview</a>
         </li> 
         <li class="users-list-link">
             <a href="<?php echo URLROOT; ?>/admin/users-list"><span><i class="fa-solid fa-users"></i></span>Users</a>

@@ -51,11 +51,11 @@
             <ul id="user-links" class='user-links'>
                 <?php if(isset($_SESSION['user_id'])) : ?>
                     <li>
-                    <a href='<?php echo URLROOT; ?>/admin'>
-                        <div class='header-cf'>
-                            <i class="fa-solid fa-user"></i>
-                        </div>
-                    </a>
+                        <a href='<?php echo URLROOT; ?>/admin'>
+                            <div class='header-cf'>
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                        </a>
                     </li>
                 <?php else : ?>
                     <li><a href='<?php echo URLROOT; ?>/register'>REGISTER</a></li>

@@ -23,9 +23,8 @@ if(getUrl == `${apiUrl}/admin/dashboard`){
 }
 
 
-//create new listing
+//open and close create ... container
 if(document.querySelector('#create-btn')) {
-    //open and close create listing container
     const createListingBtn = document.getElementById('create-btn');
     const containerOverlay = document.getElementById('container-overlay');
     const closeListingCont = document.querySelector('.dashboard-form-close-btn');

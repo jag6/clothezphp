@@ -27,19 +27,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if($data['mListings']) : ;?>
-                        <?php foreach($data['mListings'] as $listing) ;?>
+                    <?php if($data['mListings']) : ?>
+                        <?php foreach($data['mListings'] as $listing) : ?>
                             <tr>
-                                <td><?php echo $listing -> name ; ?></td>
-                                <td><?php echo $listing -> gender ; ?></td>
-                                <td><?php echo $listing -> category ; ?></td>
-                                <td><?php echo $listing -> type ; ?></td>
-                                <td><?php echo $listing -> price ; ?></td>
-                                <td><?php echo $listing -> count_in_stock ; ?></td>
+                                <td><?php echo $listing -> name; ?></td>
+                                <td><?php echo $listing -> gender; ?></td>
+                                <td><?php echo $listing -> category; ?></td>
+                                <td><?php echo $listing -> type; ?></td>
+                                <td><?php echo $listing -> price; ?></td>
+                                <td><?php echo $listing -> count_in_stock; ?></td>
                                 <td>
-                                    <a href="<?php echo URLROOT; ?>/admin/listing/edit/<?php echo $listing -> _id ; ?>" class="edit-btn">Edit</a>
+                                    <a href="<?php echo URLROOT; ?>/admin/listing/edit/<?php echo $listing -> _id; ?>" class="edit-btn">Edit</a>
                                 </td>
                             </tr>
+                        <?php endforeach; ?>
                     <?php endif ;?>
                 </tbody>
             </table>
@@ -59,20 +60,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if($data['wListings']) : ;?>
-                        <?php foreach($data['wListings'] as $listing) ;?>
+                    <?php if($data['wListings']) : ?>
+                        <?php foreach($data['wListings'] as $listing) : ?>
                             <tr>
-                                <td><?php echo $listing -> name ; ?></td>
-                                <td><?php echo $listing -> gender ; ?></td>
-                                <td><?php echo $listing -> category ; ?></td>
-                                <td><?php echo $listing -> type ; ?></td>
-                                <td><?php echo $listing -> price ; ?></td>
-                                <td><?php echo $listing -> count_in_stock ; ?></td>
+                                <td><?php echo $listing -> name; ?></td>
+                                <td><?php echo $listing -> gender; ?></td>
+                                <td><?php echo $listing -> category; ?></td>
+                                <td><?php echo $listing -> type; ?></td>
+                                <td><?php echo $listing -> price; ?></td>
+                                <td><?php echo $listing -> count_in_stock; ?></td>
                                 <td>
-                                    <a href="<?php echo URLROOT; ?>/admin/listing/edit/<?php echo $listing -> _id ; ?>" class="edit-btn">Edit</a>
+                                    <a href="<?php echo URLROOT; ?>/admin/listing/edit/<?php echo $listing -> _id; ?>" class="edit-btn">Edit</a>
                                 </td>
                             </tr>
-                    <?php endif ;?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </section>
@@ -91,19 +93,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if($data['wListings']) : ;?>
-                        <?php foreach($data['wListings'] as $listing) ;?>
+                    <?php if($data['wListings']) : ?>
+                        <?php foreach($data['wListings'] as $listing) : ?>
                             <tr>
-                                <td><?php echo $listing -> name ; ?></td>
-                                <td><?php echo $listing -> gender ; ?></td>
-                                <td><?php echo $listing -> category ; ?></td>
-                                <td><?php echo $listing -> type ; ?></td>
-                                <td><?php echo $listing -> price ; ?></td>
-                                <td><?php echo $listing -> count_in_stock ; ?></td>
+                                <td><?php echo $listing -> name; ?></td>
+                                <td><?php echo $listing -> gender; ?></td>
+                                <td><?php echo $listing -> category; ?></td>
+                                <td><?php echo $listing -> type; ?></td>
+                                <td><?php echo $listing -> price; ?></td>
+                                <td><?php echo $listing -> count_in_stock; ?></td>
                                 <td>
-                                    <a href="<?php echo URLROOT; ?>/admin/listing/edit/<?php echo $listing -> _id ; ?>" class="edit-btn">Edit</a>
+                                    <a href="<?php echo URLROOT; ?>/admin/listing/edit/<?php echo $listing -> _id; ?>" class="edit-btn">Edit</a>
                                 </td>
                             </tr>
+                        <?php endforeach; ?>
                     <?php endif ;?>
                 </tbody>
             </table>

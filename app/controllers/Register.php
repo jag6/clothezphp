@@ -10,7 +10,7 @@
                 'title' => 'Register',
                 'meta_title' => 'Register',
                 'meta_description' => 'Log in to your account',
-                'meta_url' => 'register',
+                'meta_url' => '/register',
                 'meta_image' => '',
                 //css
                 'css_other' => ''
@@ -33,13 +33,11 @@
                     'last_name' => trim($_POST['last_name']),
                     'username' => trim($_POST['username']),
                     'email' => trim($_POST['email']),
-                    'phone_number' => trim($_POST['phone_number']),
                     'password' => trim($_POST['password']),
                     'first_name_error' => '',
                     'last_name_error' => '',
                     'username_error' => '',
                     'email_error' => '',
-                    'phone_number_error' => '',
                     'password_error' => '',
                 ];
 
@@ -94,7 +92,7 @@
                 }
 
                 ////make sure errors are empty
-                if(empty($form_data['first_name_error']) && empty($form_data['last_name_error']) && empty($form_data['username_error']) && empty($form_data['email_error']) && empty($form_data['phone_number_error']) && empty($form_data['password_error']) && !empty($_POST['register_token'])){
+                if(empty($form_data['first_name_error']) && empty($form_data['last_name_error']) && empty($form_data['username_error']) && empty($form_data['email_error']) && empty($form_data['password_error']) && !empty($_POST['register_token'])){
                     //validated
 
                     //hash password
@@ -102,7 +100,7 @@
 
                     //register user
                     if($this -> userModel -> register($form_data)){
-                        flash('register_success', 'Success! You\re now registered and can log in');
+                        flash('register_success', 'Success! You\'re now registered and can log in');
                         redirect('/login');
                     }else {
                         die('Sorry, something went wrong. Please try again');
@@ -124,13 +122,11 @@
                     'last_name' => '',
                     'username' => '',
                     'email' => '',
-                    'phone_number' => '',
                     'password' => '',
                     'first_name_error' => '',
                     'last_name_error' => '',
                     'username_error' => '',
                     'email_error' => '',
-                    'phone_number_error' => '',
                     'password_error' => '',
                 ];
 

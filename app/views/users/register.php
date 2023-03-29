@@ -24,11 +24,6 @@
                 <span class="invalid span-invalid"><?php echo $form_data['email_error']; ?></span>
             </div>
             <div class="form-field">
-                <label for="phone_number">Phone Number</label>
-                <input type="phone_number" name="phone_number" class="<?php echo (!empty($form_data['phone_number_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['phone_number']; ?>">
-                <span class="invalid span-invalid"><?php echo $form_data['phone_number_error']; ?></span>
-            </div>
-            <div class="form-field">
                 <label for="password">Password</label>
                 <input type="password" name="password" class="<?php echo (!empty($form_data['password_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['password']; ?>">   
                 <span class="invalid span-invalid"><?php echo $form_data['password_error']; ?></span> 

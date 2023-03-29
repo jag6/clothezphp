@@ -1,12 +1,14 @@
 <?php require APPROOT . '/views/includes/head.php'; ?>
 
     <section class="banner">
-        <?php if($data['banner']) : ?>
-            <div><img src="/images/<%- banner.image_main -%>" alt="<%- banner.image_description -%>"></div>
-            <section class="text">
-                <h1><?php echo $banner -> text; ?></h1>
-            </section>';
-        <?php endif ;?>
+        <?php if($data['banners']) : ?>
+            <?php foreach($data['banners'] as $banner) : ?>
+                <div><img src="<?php echo URLROOT; ?>/<?php echo $banner -> image;?>" alt="<?php echo $banner -> image_description; ?>"></div>
+                <section class="text">
+                    <h1><?php echo $banner -> text; ?></h1>
+                </section>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </section>
     <section class="listings-container">
         <section><h2>All Listings</h2></section>
@@ -17,7 +19,7 @@
                     <li>
                         <a href="/listing/<%= listing.slug %>" target="_blank" class="listing">                        
                             <div class="listing-img">
-                                <img src="/images/<%= listing.image_main %>" alt="<%= listing.name %>">
+                                <img src="<?php echo URLROOT; ?>/<%= listing.image_main %>" alt="<%= listing.name %>">
                             </div> 
                             <section class="listing-name">
                                 <h4><%= listing.name %></h4> 
@@ -39,7 +41,7 @@
                         <div class="listing">                        
                             <a href="/listing/<%= listing.slug %>" target="_blank">
                                 <div class="listing-img">
-                                    <img src="/images/<%= listing.image_main %>" alt="<%= listing.name %>">
+                                    <img src="<?php echo URLROOT; ?>/<%= listing.image_main %>" alt="<%= listing.name %>">
                                 </div>                              
                             </a>
                             <section class="listing-name">
@@ -62,7 +64,7 @@
                         <div class="listing">                        
                             <a href="/listing/<%= listing.slug %>" target="_blank">
                                 <div class="listing-img">
-                                    <img src="/images/<%= listing.image_main %>" alt="<%= listing.name %>">
+                                    <img src="<?php echo URLROOT; ?>/<%= listing.image_main %>" alt="<%= listing.name %>">
                                 </div>                              
                             </a>
                             <section class="listing-name">

@@ -26,7 +26,7 @@
     <link rel="manifest" href="<?php echo URLROOT ;?>/favicon/site.webmanifest">
     <link rel="mask-icon" href="<?php echo URLROOT ;?>/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <!-- Canonical URL -->
-    <link rel="canonical" href="<?php echo $data['meta_url']; ?>">
+    <link rel="canonical" href="<?php echo URLROOT; ?><?php echo $data['meta_url']; ?>">
     <!-- Metadata -->
     <meta name="description" content="<?php echo $data['meta_description']; ?>">
     <meta name="format-detection" content="telephone=no" />
@@ -38,7 +38,7 @@
     <meta property="og:title" content="<?php echo $data['meta_title']; ?>">
     <meta property="og:description" content="<?php echo $data['meta_description']; ?>">
     <meta property="og:image" content="<?php echo URLROOT; ?>/<?php echo $data['meta_image']; ?>">
-    <meta property="og:url" content="<?php echo $data['meta_url']; ?>">
+    <meta property="og:url" content="<?php echo URLROOT; ?><?php echo $data['meta_url']; ?>">
     <!-- Scripts -->
     <script src="<?php echo URLROOT; ?>/scripts/animate.js" defer></script>
     <script src="<?php echo URLROOT; ?>/scripts/main.js" defer></script>

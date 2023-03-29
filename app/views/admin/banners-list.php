@@ -22,14 +22,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if($banner) : ?>
-                        <tr>
-                            <td><%- banner.image_main -%></td>
-                            <td><%- banner.text -%></td>
-                            <td>
-                                <a href="/admin/banner/edit/<%= banner._id %>" class="edit-btn">Edit</a>
-                            </td>
-                        </tr>
+                    <?php if($data['banners']) : ?>
+                        <?php foreach($data['banners'] as $banner) : ?>
+                            <tr>
+                                <td><?php echo $banner -> image_main; ?></td>
+                                <td><?php echo $banner -> text; ?></td>
+                                <td>
+                                    <a href="<?php echo URLROOT; ?>/admin/banner/edit/<?php echo $banner -> id; ?>" class="edit-btn">Edit</a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     <?php endif; ?>
                 </tbody>
             </table>

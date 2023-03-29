@@ -554,14 +554,18 @@ label {
     margin-bottom: .5rem;
 }
 
+.form p {
+    color: #111;
+}
+
 .form a {
-    color: #000;
+    color: #111;
     font-weight: 700;
     border-bottom: 2px solid transparent;
 }
 
 .form a:hover {
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #111;
     transition: .2s ease-in-out;
 }
 
