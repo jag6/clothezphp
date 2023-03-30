@@ -95,26 +95,43 @@
     margin-top: .5rem;
 }
 
-.details-action li:nth-child(3) a {
-    background-color: #FCCA3F;;
+.details-action li div form, .details-action form button {
+    width: 100%;
 }
 
-.details-action li:nth-child(4) a {
+.details-action li:nth-child(3) button {
+    background-color: #FCCA3F;
+}
+
+.details-action li:nth-child(4) button {
     background-color: #C73C32;
 }
 
-.details-action a {
-    border-radius: 10px;
-    display: flex;
-    text-align: center;
-    margin: 0 auto;
-    justify-content: center;
-    padding: 4px 0;
+.details-action button {
+    font-weight: 600;
 }
 
-.details-action a:hover {
+.details-action button:hover {
     cursor: pointer;
     opacity: .8;
+}
+
+.link-span {
+    text-align: center;
+    font-size: 18px;
+    color: #111;
+}
+
+.link-span span {
+    font-size: 20px;
+    border-bottom: 2px solid transparent;
+    font-weight: 700;
+    color: #111;
+}
+
+.link-span span:hover {
+    border-bottom: 2px solid #111;
+    transition: .2s ease-in-out;
 }
 
 

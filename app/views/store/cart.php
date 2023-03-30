@@ -1,5 +1,4 @@
-
-<%- include('../components/head'); %>
+<?php require APPROOT . '/views/includes/head.php'; ?>
 
 <section class="cart-container">
     <section class="cart-list">
@@ -47,4 +46,4 @@
     </section>
 </section>
 
-<%- include('../components/footer'); %>
+<?php require APPROOT . '/views/includes/footer.php'; ?>

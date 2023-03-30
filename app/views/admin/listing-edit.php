@@ -1,8 +1,8 @@
 <?php require APPROOT . '/views/includes/headAdmin.php'; ?>
 
     <div id="create-edit-hidden"></div>
-    <section class="dashboard">
-        <section id="edit-listing-container" class="dashboard-form edit-df">
+    <section class="admin">
+        <section id="edit-listing-container" class="admin-form edit-df">
             <section class="edit-df-btns">
                 <div><a class="back-to-pl" href="/admin/listings-list"><span><i class="fa-solid fa-chevron-left"></i></span>CANCEL</a></div>
                 <form action="/admin/listing/edit/<%= listing._id %>?_method=delete" method="post">

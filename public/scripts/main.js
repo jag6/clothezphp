@@ -1,30 +1,30 @@
-//toggle dashboard menu
-const dashPU = document.getElementById('dashboard-popup');
-const dashMenu = document.getElementById('dashboard-menu');
-const dashOverlay = document.getElementById('dashboard-overlay');
+//toggle admin menu
+const adminPU = document.getElementById('admin-popup');
+const adminMenu = document.getElementById('admin-menu');
+const adminOverlay = document.getElementById('admin-overlay');
 const sidebar = document.getElementById('sidebar-container');
 const sidebarOBtn = document.getElementById('sidebar-open-btn');
 const sidebarCBtn = document.getElementById('sidebar-close-btn');
 const body = document.querySelector('body');
 
-if(dashPU) {
-    dashPU.addEventListener('click', () => {
-        //close dashboard menu if open
-        if(dashMenu.style.display === 'flex') {
-            dashMenu.style.display = 'none';
-            dashOverlay.style.display = 'none';
+if(adminPU) {
+    adminPU.addEventListener('click', () => {
+        //close admin menu if open
+        if(adminMenu.style.display === 'flex') {
+            adminMenu.style.display = 'none';
+            adminOverlay.style.display = 'none';
             body.style.overflowY = 'auto';
-        //open dashboard menu
+        //open admin menu
         }else {
-            dashMenu.style.display = 'flex';
-            dashOverlay.style.display = 'flex';
+            adminMenu.style.display = 'flex';
+            adminOverlay.style.display = 'flex';
             body.style.overflowY = 'hidden';
         }
     });
     window.addEventListener('click', (e) => {
-        if(e.target == dashOverlay) {
-            dashMenu.style.display = 'none';
-            dashOverlay.style.display = 'none';
+        if(e.target == adminOverlay) {
+            adminMenu.style.display = 'none';
+            adminOverlay.style.display = 'none';
             body.style.overflowY = 'auto';
         }
     });
@@ -41,11 +41,11 @@ sidebarOBtn.addEventListener('click', () => {
         //open sidebar
         sidebar.style.display = 'flex';
         body.style.overflowY = 'hidden';
-        //close dashboard menu if sidebar is open
-        if(dashPU) {
-            dashPU.style.display = 'none';
-            dashMenu.style.display = 'none';
-            dashOverlay.style.display = 'none';
+        //close admin menu if sidebar is open
+        if(adminPU) {
+            adminPU.style.display = 'none';
+            adminMenu.style.display = 'none';
+            adminOverlay.style.display = 'none';
             body.style.overflowY = 'hidden';
         }
     }
@@ -53,16 +53,16 @@ sidebarOBtn.addEventListener('click', () => {
 sidebarCBtn.addEventListener('click', () => {
     sidebar.style.display = 'none';  
     body.style.overflowY = 'auto';
-    if(dashPU) {
-        dashPU.style.display = 'flex';
+    if(adminPU) {
+        adminPU.style.display = 'flex';
     }
 });
 window.addEventListener('click', (e) => {
     if(e.target == sidebar) {
         sidebar.style.display = 'none';
         body.style.overflowY = 'auto';
-        if(dashPU) {
-            dashPU.style.display = 'flex';
+        if(adminPU) {
+            adminPU.style.display = 'flex';
         }
     }
 });

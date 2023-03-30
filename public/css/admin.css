@@ -1,6 +1,6 @@
-/*DASHBOARD*/
+/*ADMIN*/
 
-.dashboard {
+.admin {
     padding-top: 1rem;
     display: flex;
     flex-direction: column;
@@ -10,16 +10,16 @@
     max-width: 900px;
 }
 
-.dashboard-header {
+.admin-header {
     text-align: center;
 }
 
-.dashboard h1 {
+.admin h1 {
     font-size: 48px;
     line-height: 72px;
 }
 
-.dashboard-popup {
+.admin-popup {
     position: absolute;
     display: none;
     width: 48px;
@@ -29,7 +29,7 @@
     align-items: center;
 }
 
-.dashboard-overlay {
+.admin-overlay {
     display: none;
     position: fixed;
     z-index: 1000;
@@ -42,7 +42,7 @@
     background: rgba(0, 0, 0, 0.5);
 }
 
-.dashboard-menu {
+.admin-menu {
     width: 12rem;
     min-height: 100vh;
     background-color: #e5e5e5;
@@ -53,13 +53,13 @@
     overflow-y: auto;
 }
 
-.dashboard-menu ul li {
+.admin-menu ul li {
     display: flex;
     flex-direction: row;
     position: relative;
 }
 
-.dashboard-menu ul li a {
+.admin-menu ul li a {
     display: flex;
     padding: 1rem;
     padding-left: 4rem;
@@ -70,15 +70,15 @@
     width: 12rem;
 }
 
-.dashboard-menu ul li a:hover {
+.admin-menu ul li a:hover {
     background-color: #c0c0c0;
 }
 
-.dashboard-menu ul li.selected a {
+.admin-menu ul li.selected a {
     background-color: #c0c0c0;
 }
 
-.dashboard-menu ul li span {
+.admin-menu ul li span {
     position: absolute;
     display: flex;
     align-items: center;
@@ -88,7 +88,7 @@
     left: .5rem;
 }
 
-.dashboard-menu ul li span i {
+.admin-menu ul li span i {
     font-size: 20px;
     line-height: 40px;
 }
@@ -101,38 +101,33 @@
 
 
 @media only screen and (max-width: 1200px) {
-    .dashboard-popup {
+    .admin-popup {
         display: flex;
     }
 
-    .dashboard-menu {
+    .admin-menu {
         display: none;
+        top: 104px;
         padding-top: 3rem;
+    }
+
+    .admin-header {
+        margin-left: 0;
+    }
+
+    .admin-overlay {
+        top: 104px;
     }
 }
 
 @media only screen and (orientation: landscape) and (max-width: 950px) {
-    .dashboard-menu {
+    .admin-menu {
         overflow-y: scroll;
     }
 }
 
-@media only screen and (max-width: 1000px) {
-    .dashboard-menu {
-        top: 104px;
-    }
-
-    .dashboard-header {
-        margin-left: 0;
-    }
-
-    .dashboard-overlay {
-        top: 104px;
-    }
-}
-
 @media only screen and (max-width: 900px) {
-    .dashboard {
+    .admin {
         padding: 3rem 5% 0 5%;
     }
 }
@@ -216,24 +211,24 @@ tbody td:last-child {
     z-index: 99998;
 }
 
-.dashboard-form {
+.admin-form {
     display: flex;
     justify-content: center;
     align-items: start;
     width: 100%;
 }
 
-.dashboard-form .form {
+.admin-form .form {
     width: 100%;
     max-width: 600px;
     position: relative;
 }
 
-.dashboard-form section {
+.admin-form section {
     margin-bottom: 1rem;
 }
 
-.dashboard-form-close-btn {
+.admin-form-close-btn {
     position: absolute;
     top: 0;
     right: 1rem;
@@ -319,7 +314,7 @@ tbody td:last-child {
 
 
 @media only screen and (max-width: 600px) {
-    .dashboard-form {
+    .admin-form {
         margin: 0 5%;
     }
 }

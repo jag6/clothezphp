@@ -1,11 +1,11 @@
-<button aria-label="Dashboard Menu Open Button" id="dashboard-popup" class="dashboard-popup">
+<button aria-label="Admin Menu Open Button" id="admin-popup" class="admin-popup">
     <i class="fa-solid fa-plus"></i>
 </button>
-<div id="dashboard-overlay" class="dashboard-overlay"></div>
-<div id="dashboard-menu" class="dashboard-menu">
+<div id="admin-overlay" class="admin-overlay"></div>
+<div id="admin-menu" class="admin-menu">
     <ul>
         <li class="dashboard-link">
-            <a href="<?php echo URLROOT; ?>/admin"><span><i class="fa-solid fa-chart-simple"></i></span>Overview</a>
+            <a href="<?php echo URLROOT; ?>/admin"><span><i class="fa-solid fa-chart-simple"></i></span>Dashboard</a>
         </li> 
         <li class="users-list-link">
             <a href="<?php echo URLROOT; ?>/admin/users-list"><span><i class="fa-solid fa-users"></i></span>Users</a>

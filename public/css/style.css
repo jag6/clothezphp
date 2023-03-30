@@ -127,8 +127,9 @@ label {
     line-height: 24px;
 }
 
-input, button, textarea {
-    font: 16px 'Cabin', sans-serif;
+input, button, textarea, select {
+    font-family: 'Cabin', sans-serif;
+    font-size: 16px;
     line-height: 24px;
     padding: .5rem 1rem;
     border: none;
@@ -261,6 +262,10 @@ small {
     padding: 0 5%;
 }
 
+.text-align {
+    text-align: center;
+}
+
 
 /*SIDEBAR*/
 
@@ -269,7 +274,7 @@ aside {
     display: none;
     width: 100%;
     background: rgba(0, 0, 0, .5);
-    z-index: 1;
+    z-index: 4;
     top: 104px;
     bottom: 0;
 }
@@ -379,6 +384,7 @@ aside {
     color: #f2f2f2;
     position: absolute;
     bottom: 0px;
+    margin-bottom: 2px;
     width: 100%;
     text-align: center;
 }
@@ -470,12 +476,14 @@ aside {
 .listing-name h4 {
     font-size: 18px;
     line-height: 24px;
+    color: #111;
 }
 
 .listing-price p {
     font-size: 16px;
     line-height: 24px;
     font-weight: 700;
+    color: #111;
 }
 
 .rating {
@@ -485,7 +493,7 @@ aside {
 }
 
 .rating span:last-child {
-    color: #222;
+    color: #111;
     font-size: 16px;
     line-height: 24px;
     font-weight: 700;
@@ -561,10 +569,15 @@ label {
 .form a {
     color: #111;
     font-weight: 700;
+}
+
+.form a span {
+    font-size: 16px;
+    line-height: 32px;
     border-bottom: 2px solid transparent;
 }
 
-.form a:hover {
+.form a span:hover {
     border-bottom: 2px solid #111;
     transition: .2s ease-in-out;
 }

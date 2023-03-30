@@ -21,14 +21,13 @@
     <link rel="manifest" href="<?php echo URLROOT ;?>/favicon/site.webmanifest">
     <link rel="mask-icon" href="<?php echo URLROOT ;?>/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <!-- Canonical URL -->
-    <link rel="canonical" href="<?php echo URLROOT; ?>/admin">
+    <link rel="canonical" href="<?php echo URLROOT; ?>/user">
     <!-- Metadata -->
-    <meta name="description" content="Your personal admin page">
+    <meta name="description" content="Your personal user page">
     <meta name="format-detection" content="telephone=no" />
     <!-- Scripts -->
     <script src="<?php echo URLROOT; ?>/scripts/animate.js" defer></script>
     <script src="<?php echo URLROOT; ?>/scripts/main.js" defer></script>
-    <script src="<?php echo URLROOT; ?>/scripts/admin.js" defer></script>
 </head>
 <body>
     <?php require APPROOT . '/views/includes/header.php'; ?>

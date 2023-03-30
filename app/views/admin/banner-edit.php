@@ -1,8 +1,8 @@
 <?php require APPROOT . '/views/includes/headAdmin.php'; ?>
 
     <div id="create-edit-hidden"></div>
-    <section class="dashboard">
-        <section id="edit-banner-container" class="dashboard-form edit-df">
+    <section class="admin">
+        <section id="edit-banner-container" class="admin-form edit-df">
             <section class="edit-df-btns">
                 <div><a class="back-to-pl" href="/admin/banners-list"><span><i class="fa-solid fa-chevron-left"></i></span>CANCEL</a></div>
                 <form action="/admin/banner/edit/<%= banner._id %>?_method=delete" method="post">
@@ -10,7 +10,7 @@
                 </form>
             </section>
             <form id="edit-banner-form" class="form">
-                <button type="button" class="dashboard-form-close-btn">
+                <button type="button" class="admin-form-close-btn">
                     <i class="fa-solid fa-circle-xmark"></i>
                 </button>
                 <section><h2><span><i class="fa-solid fa-pen-to-square"></i></span>Edit Banner</h2></section>

@@ -2,10 +2,16 @@
     class Home extends Controller {
         public function __construct(){
             
+            //set models
+            $this -> bannerModel = $this -> model('Banner');
+            $this -> listingModel = $this -> model('ListingItem');
         }
 
         public function index(){
-            $banners;
+            $banners = $this -> bannerModel -> getBanners();
+            $mListings = $this -> listingModel -> getMListings();
+            $wListings = $this -> listingModel -> getWListings();
+            $uListings = $this -> listingModel -> getUListings();
 
             $data = [
                 //metadata
@@ -17,7 +23,10 @@
                 //css
                 'css_other' => '',
                 //banners
-                'banners' => $banners
+                'banners' => $banners,
+                'mListings' => $mListings,
+                'wListings' => $wListings,
+                'uListings' => $uListings
             ];
 
             $this -> view('store/index', $data);

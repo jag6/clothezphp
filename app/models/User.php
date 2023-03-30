@@ -8,7 +8,7 @@
 
         //register user
         public function register($form_data){
-            $this -> db -> query('INSERT INTO users (first_name, last_name, username, email, password) VALUES (:first_name, :last_name, :username, :email, :password');
+            $this -> db -> query('INSERT INTO users (first_name, last_name, username, email, password) VALUES (:first_name, :last_name, :username, :email, :password)');
             //bind values
             $this -> db -> bind(':first_name', $form_data['first_name']);
             $this -> db -> bind(':last_name', $form_data['last_name']);
@@ -17,7 +17,7 @@
             $this -> db -> bind(':password', $form_data['password']);
 
             //execute
-            if($this -> sb -> execute()){
+            if($this -> db -> execute()){
                 return true;
             }else {
                 return false;

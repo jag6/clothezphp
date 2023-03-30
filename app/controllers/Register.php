@@ -96,7 +96,7 @@
                     //validated
 
                     //hash password
-                    $form_data['password'] = password_hash($form_data['password'], PASSWORD_DEFUALT);
+                    $form_data['password'] = password_hash($form_data['password'], PASSWORD_DEFAULT);
 
                     //register user
                     if($this -> userModel -> register($form_data)){

@@ -1,9 +1,9 @@
 <?php require APPROOT . '/views/includes/headAdmin.php'; ?>
-    <?php require APPROOT . '/views/includes/dashboardMenu.php'; ?>
+    <?php require APPROOT . '/views/includes/adminMenu.php'; ?>
     
-    <section class="dashboard">
-        <section id="dashboard-header" class="dashboard-header">
-            <h1>Welcome <?php echo $_SESSION['first_name']; ?></h1>
+    <section class="admin">
+        <section id="admin-header" class="admin-header">
+            <h1>Welcome Admin <?php echo $_SESSION['user_username']; ?></h1>
         </section>
     </section>
 

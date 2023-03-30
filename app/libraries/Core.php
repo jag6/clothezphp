@@ -39,11 +39,11 @@
                     $this -> currentMethod = $url[1];
                     //unset 1 index
                     unset($url[1]);
-                }else{
+                }/*else{
                     http_response_code(404);
                     include(APPROOT . '/views/pages/404.php');
                     die();
-                }
+                }*/
             }
             
             //get params

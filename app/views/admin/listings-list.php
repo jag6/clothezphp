@@ -1,8 +1,9 @@
 <?php require APPROOT . '/views/includes/headAdmin.php'; ?>
-    <?php require APPROOT . '/views/includes/dashboardMenu.php'; ?>
-
+    <?php require APPROOT . '/views/includes/adminMenu.php'; ?>
+    
+    <?php flash('listing_success'); ?></php>
     <div id="create-edit-hidden"></div>
-    <section class="dashboard">
+    <section class="admin">
         <section class="db-list-header">
             <h1>Listings List</h1>
             <div class="cpb">
@@ -26,8 +27,8 @@
                         <th class="tr-action">ACTION</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php if($data['mListings']) : ?>
+                <?php if($data['mListings']) : ?>
+                    <tbody>
                         <?php foreach($data['mListings'] as $listing) : ?>
                             <tr>
                                 <td><?php echo $listing -> name; ?></td>
@@ -41,8 +42,8 @@
                                 </td>
                             </tr>
                         <?php endforeach; ?>
-                    <?php endif ;?>
-                </tbody>
+                    </tbody>
+                <?php endif ;?>
             </table>
         </section>
         <section class="listing-list list">
@@ -59,8 +60,8 @@
                         <th class="tr-action">ACTION</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php if($data['wListings']) : ?>
+                <?php if($data['wListings']) : ?>
+                    <tbody>
                         <?php foreach($data['wListings'] as $listing) : ?>
                             <tr>
                                 <td><?php echo $listing -> name; ?></td>
@@ -74,8 +75,8 @@
                                 </td>
                             </tr>
                         <?php endforeach; ?>
-                    <?php endif; ?>
-                </tbody>
+                    </tbody>
+                <?php endif; ?>
             </table>
         </section>
         <section class="listing-list list">
@@ -92,9 +93,9 @@
                         <th class="tr-action">ACTION</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php if($data['wListings']) : ?>
-                        <?php foreach($data['wListings'] as $listing) : ?>
+                <?php if($data['uListings']) : ?>
+                    <tbody>
+                        <?php foreach($data['uListings'] as $listing) : ?>
                             <tr>
                                 <td><?php echo $listing -> name; ?></td>
                                 <td><?php echo $listing -> gender; ?></td>
@@ -107,47 +108,60 @@
                                 </td>
                             </tr>
                         <?php endforeach; ?>
-                    <?php endif ;?>
-                </tbody>
+                    </tbody>    
+                <?php endif ;?>
             </table>
         </section>
         <section id="container-overlay" class="container-overlay">
-            <section id="new-listing-container" class="dashboard-form form-animate">
-                <form id="new-listing-form" class="form">
-                    <button aria-label="New Listing Close Button" type="button" class="dashboard-form-close-btn">
+            <section id="new-listing-container" class="admin-form form-animate">
+                <form action="<?php echo URLROOT; ?>/admin/listings-list" method="post" enctype="multipart/form-data" id="new-listing-form" class="form">
+                    <button aria-label="New Listing Close Button" type="button" class="admin-form-close-btn">
                         <i class="fa-solid fa-circle-xmark"></i>
                     </button>
                     <section><h2><span><i class="fa-solid fa-plus"></i></span>New Listing</h2></section>
+                    <!-- Name -->
                     <label for="name">Name</label>
-                    <input type="text" name="name" id="name" value="">
+                    <input type="text" name="name" class="<?php echo (!empty($form_data['name_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['name']; ?>">
+                    <span class="invalid span-invalid"><?php echo $form_data['name_error']; ?></span>
+                    <!-- Slug -->
+                    <label for="slug">Slug</label>
+                    <input type="text" name="slug" class="<?php echo (!empty($form_data['slug_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['slug']; ?>">
+                    <span class="invalid span-invalid"><?php echo $form_data['slug_error']; ?></span>
+                    <!-- Description -->
                     <label for="description">Description</label>
-                    <textarea name="description" id="description" cols="30" rows="10" value=""></textarea>
+                    <textarea name="description" rows="10" columns="30" class="<?php echo (!empty($form_data['description_error'])) ? 'invalid' : ''; ?>"><?php echo $form_data['description']; ?></textarea>
+                    <span class="invalid span-invalid"><?php echo $form_data['description_error']; ?></span>
+                    <!-- Gender -->
                     <label for="gender">Gender</label>
-                    <input type="text" name="gender" id="gender" value="">
+                    <input type="text" name="gender" class="<?php echo (!empty($form_data['gender_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['gender']; ?>">
+                    <span class="invalid span-invalid"><?php echo $form_data['gender_error']; ?></span>
+                    <!-- Gender Slug -->
+                    <label for="gender_slug">Gender Slug</label>
+                    <input type="text" name="gender_slug" class="<?php echo (!empty($form_data['gender_slug_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['gender_slug']; ?>">
+                    <span class="invalid span-invalid"><?php echo $form_data['gender_slug_error']; ?></span>
+                    <!-- Category -->
                     <label for="category">Category</label>
-                    <input type="text" name="category" id="category" value=""> 
+                    <input type="text" name="category" class="<?php echo (!empty($form_data['category_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['category']; ?>">
+                    <span class="invalid span-invalid"><?php echo $form_data['category_error']; ?></span>
+                    <!-- Type -->
                     <label for="type">Type</label>
-                    <input type="text" name="type" id="type" value="">  
+                    <input type="text" name="type" class="<?php echo (!empty($form_data['type_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['type']; ?>">
+                    <span class="invalid span-invalid"><?php echo $form_data['type_error']; ?></span>
+                    <!-- Image Main -->
                     <label for="image_main">Image Main (1200 x 600)</label>
-                    <input type="text" name="image_main" id="image_main" value="">
-                    <input type="file" name="image_file_main" id="image_file_main">
-                    <label for="image_1">Image 1 (Optional)</label>
-                    <input type="text" name="image_1" id="image_1" value="">
-                    <input type="file" name="image_file_1" id="image_file_1">
-                    <label for="image_2">Image 2 (Optional)</label>
-                    <input type="text" name="image_2" id="image_2" value="">
-                    <input type="file" name="image_file_2" id="image_file_2">
-                    <label for="image_3">Image 3 (Optional)</label>
-                    <input type="text" name="image_3" id="image_3" value="">
-                    <input type="file" name="image_file_3" id="image_file_3">
-                    <label for="image_4">Image 4 (Optional)</label>
-                    <input type="text" name="image_4" id="image_4" value="">
-                    <input type="file" name="image_file_4" id="image_file_4">
+                    <input type="file" name="image_main" class="<?php echo (!empty($form_data['image_main_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['image_main']; ?>">
+                    <span class="invalid span-invalid"><?php echo $form_data['image_main_error']; ?></span>
+                    <!-- Price -->
                     <label for="price">Price</label>
-                    <input type="number" name="price" id="price" value=""> 
+                    <input type="number" name="price" class="<?php echo (!empty($form_data['price_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['price']; ?>">
+                    <span class="invalid span-invalid"><?php echo $form_data['price_error']; ?></span>
+                    <!-- Count in Stock -->
                     <label for="count_in_stock">Count In Stock</label>
-                    <input type="text" name="count_in_stock" id="count_in_stock" value="">
-                    <button type="submit" class="primary bold" id="pes-btn">CREATE</button>
+                    <input type="number" name="count_in_stock" class="<?php echo (!empty($form_data['count_in_stock_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['count_in_stock']; ?>">
+                    <span class="invalid span-invalid"><?php echo $form_data['count_in_stock_error']; ?></span>
+                    <!-- Token -->
+                    <input type="hidden" name="token" value="<?php echo $_SESSION['token']; ?>">
+                    <button aria-label="New Banner Submit Button" type="submit" class="primary bold" id="pes-btn">CREATE</button>
                 </form>   
             </section>
         </section>

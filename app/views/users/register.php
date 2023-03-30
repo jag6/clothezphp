@@ -29,9 +29,9 @@
                 <span class="invalid span-invalid"><?php echo $form_data['password_error']; ?></span> 
             </div>
             <input type="hidden" name="register_token" value="<?php echo $form_data['register_token']; ?>">
-            <button type="submit" class="primary">REGISTER</button>    
+            <button aria-label="Login Button" type="submit" class="primary">REGISTER</button>    
             <div>
-                <p>Already have an account?<p><a href="<?php echo URLROOT; ?>/login"><p>Log In<p></a>
+                <p>Already have an account?</p><a href="<?php echo URLROOT; ?>/login"><span>Log In</span></a>
             </div>
         </form>
     </section>

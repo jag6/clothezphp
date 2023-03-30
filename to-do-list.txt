@@ -1,5 +1,7 @@
 1. Create user
-2. Upload listings
-    -fix index page
-3. Test out cart
+2. Test out cart
     -fix cart page
+
+
+Issues
+    - no success message after saving listing

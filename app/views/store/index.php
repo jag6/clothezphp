@@ -1,83 +1,85 @@
 <?php require APPROOT . '/views/includes/head.php'; ?>
 
-    <section class="banner">
-        <?php if($data['banners']) : ?>
+    <?php if($data['banners']) : ?>
+        <section class="banner">
             <?php foreach($data['banners'] as $banner) : ?>
                 <div><img src="<?php echo URLROOT; ?>/<?php echo $banner -> image;?>" alt="<?php echo $banner -> image_description; ?>"></div>
                 <section class="text">
                     <h1><?php echo $banner -> text; ?></h1>
                 </section>
             <?php endforeach; ?>
-        <?php endif; ?>
-    </section>
+        </section>
+    <?php endif; ?>
     <section class="listings-container">
         <section><h2>All Listings</h2></section>
         <section class="listings-gender-container">
             <section class="listings-header"><h3>Men's</h3></section>
-            <ul class="listings">
-                <% mListings.forEach(listing => {%>
-                    <li>
-                        <a href="/listing/<%= listing.slug %>" target="_blank" class="listing">                        
-                            <div class="listing-img">
-                                <img src="<?php echo URLROOT; ?>/<%= listing.image_main %>" alt="<%= listing.name %>">
-                            </div> 
-                            <section class="listing-name">
-                                <h4><%= listing.name %></h4> 
-                            </section>
-                            <div class="listing-rating"></div>
-                            <div class="listing-price">
-                                <p>$<%= listing.price %></p>
-                            </div>
-                        </a>
-                    </li>
-                <% }); %>
-            </ul>
+            <?php if($data['mListings']) : ?>
+                <ul class="listings">
+                    <?php foreach($data['mListings'] as $listing) : ?>
+                        <li>
+                            <a href="<?php echo URLROOT; ?>/listing/<?php echo $listing -> slug; ?>" target="_blank" class="listing">                        
+                                <div class="listing-img">
+                                    <img src="<?php echo URLROOT; ?>/<?php echo $listing -> image_main; ?>" alt="<?php echo $listing -> name; ?>">
+                                </div> 
+                                <section class="listing-name">
+                                    <h4><?php echo $listing -> name; ?></h4> 
+                                </section>
+                                <?php require APPROOT . '/views/includes/listingRating.php'; ?>
+                                <div class="listing-price">
+                                    <p>$<?php echo $listing -> price; ?></p>
+                                </div>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
         </section>
         <section class="listings-gender-container">
             <section class="listings-header"><h3>Women's</h3></section>
-            <ul class="listings">
-                <% wListings.forEach(listing => {%>
-                    <li>
-                        <div class="listing">                        
-                            <a href="/listing/<%= listing.slug %>" target="_blank">
+            <?php if($data['wListings']) : ?>
+                <ul class="listings">
+                    <?php foreach($data['wListings'] as $listing) : ?>
+                        <li>
+                            <a href="<?php echo URLROOT; ?>/listing/<?php echo $listing -> slug; ?>" target="_blank" class="listing">                        
                                 <div class="listing-img">
-                                    <img src="<?php echo URLROOT; ?>/<%= listing.image_main %>" alt="<%= listing.name %>">
-                                </div>                              
+                                    <img src="<?php echo URLROOT; ?>/<?php echo $listing -> image_main; ?>" alt="<?php echo $listing -> name; ?>">
+                                </div> 
+                                <section class="listing-name">
+                                    <h4><?php echo $listing -> name; ?></h4> 
+                                </section>
+                                <?php require APPROOT . '/views/includes/listingRating.php'; ?>
+                                <div class="listing-price">
+                                    <p>$<?php echo $listing -> price; ?></p>
+                                </div>
                             </a>
-                            <section class="listing-name">
-                                <h4><%= listing.name %></h4> 
-                            </section>
-                            <div class="listing-rating"></div>
-                            <div class="listing-price">
-                                <p>$<%= listing.price %></p>
-                            </div>
-                        </div>
-                    </li>
-                <% }); %>
-            </ul>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>    
+            <?php endif; ?>
         </section>
         <section class="listings-gender-container">
             <section class="listings-header"><h3>Unisex</h3></section>
-            <ul class="listings">
-                <% uListings.forEach(listing => {%>
-                    <li>
-                        <div class="listing">                        
-                            <a href="/listing/<%= listing.slug %>" target="_blank">
+            <?php if($data['uListings']) : ?>
+                <ul class="listings">
+                    <?php foreach($data['uListings'] as $listing) : ?>
+                        <li>
+                            <a href="<?php echo URLROOT; ?>/listing/<?php echo $listing -> slug; ?>" target="_blank" class="listing">                        
                                 <div class="listing-img">
-                                    <img src="<?php echo URLROOT; ?>/<%= listing.image_main %>" alt="<%= listing.name %>">
-                                </div>                              
+                                    <img src="<?php echo URLROOT; ?>/<?php echo $listing -> image_main; ?>" alt="<?php echo $listing -> name; ?>">
+                                </div> 
+                                <section class="listing-name">
+                                    <h4><?php echo $listing -> name; ?></h4> 
+                                </section>
+                                <?php require APPROOT . '/views/includes/listingRating.php'; ?>
+                                <div class="listing-price">
+                                    <p>$<?php echo $listing -> price; ?></p>
+                                </div>
                             </a>
-                            <section class="listing-name">
-                                <h4><%= listing.name %></h4> 
-                            </section>
-                            <div class="listing-rating"></div>
-                            <div class="listing-price">
-                                <p>$<%= listing.price %></p>
-                            </div>
-                        </div>
-                    </li>
-                <% }); %>
-            </ul>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
         </section>
     </section>
 

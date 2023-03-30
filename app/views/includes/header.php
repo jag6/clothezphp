@@ -42,16 +42,24 @@
             <button type="button" aria-label="Sidebar Open Button" class="sidebar-open-btn">
                 <i class="fa-solid fa-bars-staggered"></i>
             </button>
-            <form class="search-form">
-                <input type="text" name="q" value="${value || ''}">
+            <form action="<?php echo URLROOT; ?>/search" method="get" class="search-form">
+                <input type="text" name="q" placeholder="Search...">
             <button type="submit" aria-label="Search Button"><i class="fa fa-search"></i></button>
             </form>
         </div>
         <div id="header-other" class="header-other">
             <ul id="user-links" class='user-links'>
-                <?php if(isset($_SESSION['user_id'])) : ?>
+                <?php if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 'admin') : ?>
                     <li>
                         <a href='<?php echo URLROOT; ?>/admin'>
+                            <div class='header-cf'>
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                        </a>
+                    </li>
+                <?php elseif(isset($_SESSION['user_id'])) : ?>
+                    <li>
+                        <a href='<?php echo URLROOT; ?>/users'>
                             <div class='header-cf'>
                                 <i class="fa-solid fa-user"></i>
                             </div>
@@ -62,14 +70,14 @@
                     <li><a href='<?php echo URLROOT; ?>/login'>LOGIN</a></li>
                 <?php endif; ?>
                 <li>
-                    <a href='/favorites'>
+                    <a href='<?php echo URLROOT; ?>/favorites'>
                         <div class='header-cf'>
                             <i class="fa-solid fa-heart"></i>
                         </div>
                     </a>
                 </li>
                 <li>
-                    <a id='cart-icon' href='/cart'>
+                    <a href='<?php echo URLROOT; ?>/cart'>
                         <div class='header-cf'>
                             <i class="fa-solid fa-cart-shopping"></i>
                             <p></p>
@@ -84,7 +92,7 @@
             <i class="fa-solid fa-bars-staggered"></i>
         </button>
         <form class="search-form">
-            <input type="text" name="q" value="${value || ''}">
+            <input type="text" name="q" placeholder="Search...">
             <button type="submit" aria-label="Search Button"><i class="fa fa-search"></i></button>
         </form>
     </div>
