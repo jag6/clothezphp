@@ -93,6 +93,8 @@
                 //validate slug
                 if(empty($form_data['slug'])){
                     $form_data['slug_error'] = 'Please enter slug';
+                }elseif($this -> listingModel -> getListingBySlug($form_data['slug'])){
+                    $form_data['slug_error'] = 'Another listing already has this slug';
                 }
 
                 //validate description

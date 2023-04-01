@@ -4,24 +4,27 @@
     //flash message helper
     //example - flash('register_success', 'You are now registered');
     //display in view - echo flash('register_success');
-    function flash($username = '', $message = '', $class = 'alert-success'){
-        if(!empty($username)){
-            if(!empty($message) && empty($_SESSION[$username])){
-                if(!empty($_SESSION[$username])){
-                    unset($_SESSION[$username]);
+    function flash($name = '', $message = '', $class = 'alert-success') {
+        if(!empty($name)){
+            //create new flash message
+            if(!empty($message)){
+                //unset previous values
+                if(!empty($_SESSION[$name])) {
+                    unset($_SESSION[$name]);
                 }
-
-                if(!empty($_SESSION[$username. '_class'])){
-                    unset($_SESSION[$username. '_class']);
+                if(!empty($_SESSION[$name. '_class'])) {
+                    unset($_SESSION[$name. '_class']);
                 }
-
-                $_SESSION[$username] = $message;
-                $_SESSION[$username . '_class'] = $class;
-            }elseif(empty($message) && !empty($_SESSION[$username])){
-                $class = !empty($_SESSION[$username. '_class']) ? $_SESSION[$username. '_class'] : '';
-                echo '<div class ="'.$class.'" id="msg-flash">'.$_SESSION[$username].'</div>';
-                unset($_SESSION[$username]);
-                unset($_SESSION[$username. '_class']);
+                //set new values
+                $_SESSION[$name] = $message;
+                $_SESSION[$name. '_class'] = $class;
+            }
+            //display flash
+            elseif(!empty($_SESSION[$name])){
+                echo '<div class="' . $_SESSION[$name. '_class'] . '" id="msg-flash">' . $_SESSION[$name] . '</div>';
+                //unset
+                unset($_SESSION[$name]);
+                unset($_SESSION[$name. '_class']);
             }
         }
     }

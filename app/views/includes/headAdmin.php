@@ -25,6 +25,7 @@
     <!-- Metadata -->
     <meta name="description" content="Your personal admin page">
     <meta name="format-detection" content="telephone=no" />
+    <meta property="og:site_name" content="Clothez">
     <!-- Scripts -->
     <script src="<?php echo URLROOT; ?>/scripts/animate.js" defer></script>
     <script src="<?php echo URLROOT; ?>/scripts/main.js" defer></script>

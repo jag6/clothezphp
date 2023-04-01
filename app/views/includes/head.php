@@ -34,11 +34,13 @@
     <meta name="twitter:title" content="<?php echo $data['meta_title']; ?>">
     <meta name="twitter:description" content="<?php echo $data['meta_description']; ?>">
     <meta name="twitter:image" content="<?php echo URLROOT; ?>/<?php echo $data['meta_image']; ?>">
+    <meta name="twitter:card" content="summary_large_image">
     <!-- Other Social Media Metadata -->
     <meta property="og:title" content="<?php echo $data['meta_title']; ?>">
     <meta property="og:description" content="<?php echo $data['meta_description']; ?>">
     <meta property="og:image" content="<?php echo URLROOT; ?>/<?php echo $data['meta_image']; ?>">
     <meta property="og:url" content="<?php echo URLROOT; ?><?php echo $data['meta_url']; ?>">
+    <meta property="og:site_name" content="Clothez">
     <!-- Scripts -->
     <script src="<?php echo URLROOT; ?>/scripts/animate.js" defer></script>
     <script src="<?php echo URLROOT; ?>/scripts/main.js" defer></script>

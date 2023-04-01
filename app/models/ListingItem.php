@@ -36,6 +36,94 @@
             return $results;
         }
 
+        //gender slug
+        public function getListingsByGenderSlug($gender_slug){
+            $this -> db -> query('SELECT * FROM listings where gender_slug = :gender_slug');
+            //bind value
+            $this -> db -> bind(':gender_slug', $gender_slug);
+
+            $results = $this -> db -> resultSet();
+
+            return $results;
+        }
+
+        //tops
+        public function getListingsByTops($gender_slug){
+            $this -> db -> query('SELECT * FROM listings WHERE category = "Tops" AND gender_slug = :gender_slug ORDER BY listings.created_at DESC');
+            //bind value
+            $this -> db -> bind(':gender_slug', $gender_slug);
+
+            $results = $this -> db -> resultSet();
+
+            return $results;
+        }
+
+        //shirts
+        public function getListingsByShirts($gender_slug){
+            $this -> db -> query('SELECT * FROM listings WHERE category = "Shirts" AND gender_slug = :gender_slug ORDER BY listings.created_at DESC');
+            //bind value
+            $this -> db -> bind(':gender_slug', $gender_slug);
+
+            $results = $this -> db -> resultSet();
+
+            return $results;
+        }
+
+        //jackets
+        public function getListingsByJackets($gender_slug){
+            $this -> db -> query('SELECT * FROM listings WHERE category = "Jackets" AND gender_slug = :gender_slug ORDER BY listings.created_at DESC');
+            //bind value
+            $this -> db -> bind(':gender_slug', $gender_slug);
+
+            $results = $this -> db -> resultSet();
+
+            return $results;
+        }
+
+        //skirts
+        public function getListingsBySkirts($gender_slug){
+            $this -> db -> query('SELECT * FROM listings WHERE category = "Skirts" AND gender_slug = :gender_slug ORDER BY listings.created_at DESC');
+            //bind value
+            $this -> db -> bind(':gender_slug', $gender_slug);
+
+            $results = $this -> db -> resultSet($gender_slug);
+
+            return $results;
+        }
+
+        //pants
+        public function getListingsByPants($gender_slug){
+            $this -> db -> query('SELECT * FROM listings WHERE category = "Pants" AND gender_slug = :gender_slug ORDER BY listings.created_at DESC');
+            //bind value
+            $this -> db -> bind(':gender_slug', $gender_slug);
+
+            $results = $this -> db -> resultSet();
+
+            return $results;
+        }
+
+        //shoes
+        public function getListingsByShoes($gender_slug){
+            $this -> db -> query('SELECT * FROM listings WHERE category = "Shoes" AND gender_slug = :gender_slug ORDER BY listings.created_at DESC');
+            //bind value
+            $this -> db -> bind(':gender_slug', $gender_slug);
+
+            $results = $this -> db -> resultSet();
+
+            return $results;
+        }
+
+        //socks
+        public function getListingsBySocks($gender_slug){
+            $this -> db -> query('SELECT * FROM listings WHERE category = "Socks" AND gender_slug = :gender_slug ORDER BY listings.created_at DESC');
+            //bind value
+            $this -> db -> bind(':gender_slug', $gender_slug);
+
+            $results = $this -> db -> resultSet();
+
+            return $results;
+        }
+
 
         //GET LISTING
 
@@ -51,7 +139,7 @@
         }
 
 
-        //save listing
+        //SAVE NEW LISTING
         public function saveListing($form_data){
             $this -> db -> query('INSERT INTO listings (name, slug, description, gender, gender_slug, category, type, image_main, price, count_in_stock) VALUES(:name, :slug, :description, :gender, :gender_slug, :category, :type, :image_main, :price, :count_in_stock)');
             //bind values

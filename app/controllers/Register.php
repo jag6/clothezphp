@@ -11,7 +11,7 @@
                 'meta_title' => 'Register',
                 'meta_description' => 'Log in to your account',
                 'meta_url' => '/register',
-                'meta_image' => '',
+                'meta_image' => 'woman-sunglasses.webp',
                 //css
                 'css_other' => ''
             ];
@@ -60,11 +60,8 @@
                     $form_data['username_error'] = 'Please enter username';
                 }elseif(strlen($form_data['username']) < 4){
                     $form_data['username_error'] = 'Username must be more than 4 letters';
-                }else{
-                    //check username
-                    if($this -> userModel -> findUserByUsername($form_data['username'])){
+                }elseif($this -> userModel -> findUserByUsername($form_data['username'])){
                         $form_data['username_error'] = 'Username already taken';
-                    }
                 }
 
                 //validate email
@@ -72,11 +69,8 @@
                     $form_data['email_error'] = 'Please enter email';
                 }elseif(!filter_var($form_data['email'], FILTER_VALIDATE_EMAIL)){
                     $form_data['email_error'] = 'Invalid email format';
-                }else{
-                    //check email
-                    if($this -> userModel -> findUserByEmail($form_data['email'])){
+                }elseif($this -> userModel -> findUserByEmail($form_data['email'])){
                         $form_data['email_error'] = 'Email already taken';
-                    }
                 }
 
                 //validate password

@@ -41,7 +41,7 @@
 <body>
     <?php require APPROOT . '/views/includes/header.php'; ?>
     <main>
-        <?php APPROOT . '/views/includes/sidebar.php'; ?>
+        <?php require APPROOT . '/views/includes/sidebar.php'; ?>
         <section class="listing-container">
             <section class="details">
                 <div class="img-info">

@@ -12,7 +12,7 @@
                 'meta_title' => 'Login',
                 'meta_description' => 'Log in to your account',
                 'meta_url' => '/login',
-                'meta_image' => '',
+                'meta_image' => 'woman-sunglasses.webp',
                 //css
                 'css_other' => ''
             ];
