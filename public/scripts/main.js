@@ -37,6 +37,7 @@ sidebarOBtn.addEventListener('click', () => {
     if(sidebar.style.display === 'flex') {
         sidebar.style.display = 'none';
         body.style.overflowY = 'auto';
+        adminPU.style.display = 'flex';
     }else {
         //open sidebar
         sidebar.style.display = 'flex';

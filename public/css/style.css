@@ -276,7 +276,7 @@ aside {
     background: rgba(0, 0, 0, .5);
     z-index: 4;
     top: 104px;
-    bottom: 0;
+    bottom: 56px;
 }
 
 .sidebar-body {
@@ -369,6 +369,12 @@ aside {
 @media only screen and (max-width: 1200px) {
     .sidebar-close-btn {
         top: 56px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    aside {
+        bottom: 200px;
     }
 }
 

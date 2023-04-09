@@ -44,11 +44,10 @@
 
 .admin-menu {
     width: 12rem;
-    min-height: 100vh;
     background-color: #e5e5e5;
     position: fixed;
     top: 56px;
-    bottom: 0;
+    bottom: 56px;
     z-index: 2;
     overflow-y: auto;
 }
@@ -129,6 +128,12 @@
 @media only screen and (max-width: 900px) {
     .admin {
         padding: 3rem 5% 0 5%;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .admin-overlay, .admin-menu {
+        bottom: 200px;
     }
 }
 
