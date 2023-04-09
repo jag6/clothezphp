@@ -44,3 +44,15 @@
             return false;
         }
     }
+
+    function registerToken(){
+        if(empty($_SESSION['register_token'])){
+            $_SESSION['register_token'] = bin2hex(random_bytes(32));
+        }
+    }
+
+    function loginToken(){
+        if(empty($_SESSION['login_token'])){
+            $_SESSION['login_token'] = bin2hex(random_bytes(32));
+        }
+    }

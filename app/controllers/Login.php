@@ -2,6 +2,14 @@
     class Login extends Controller {
         public function __construct(){
             $this -> userModel = $this -> model('User');
+
+            if(isLoggedInAndAdmin()){
+                redirect('admin');
+            }elseif(isLoggedIn()){
+                redirect('users');
+            }
+
+            loginToken();
         }
 
         public function index(){
@@ -21,14 +29,10 @@
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 //process form
 
-                //login token
-                $login_token = bin2hex(random_bytes(32));
-
                 //sanitize post data
                 $_POST = filter_input_array(htmlspecialchars(INPUT_POST));
 
                 $form_data = [
-                    'login_token' => $login_token,
                     'email' => trim($_POST['email']),
                     'password' => trim($_POST['password']),
                     'email_error' => '',
@@ -56,12 +60,18 @@
                     die('No token');
                 }
 
+                //confirm tokens
+                if(!hash_equals($_SESSION['login_token'], $_POST['login_token'])){
+                    die('Tokens don\'t match');
+                }
+
                 //make sure errors are empty
-                if(empty($form_data['email_error']) && empty($form_data['password_error']) && !empty($_POST['login_token'])){
+                if(empty($form_data['email_error']) && empty($form_data['password_error']) && !empty($_POST['login_token']) && hash_equals($_SESSION['login_token'], $_POST['login_token'])){
                     //check and set logged in user
                     $loggedInUser = $this -> userModel -> login($form_data['email'], $form_data['password']);
                     if($loggedInUser){
                         //create session
+                        unset($_SESSION['login_token']);
                         $this -> createUserSession
                         ($loggedInUser);
                     }else {
@@ -77,10 +87,7 @@
             else {
                 //initialize form
     
-                $login_token = bin2hex(random_bytes(32));
-    
                 $form_data = [
-                    'login_token' => $login_token,
                         'email' => '',
                         'password' => '',
                         'email_error' => '',
@@ -90,8 +97,6 @@
                 //load view
                 $this -> view('users/login', $data, $form_data);
             }
-
-            $this -> view('users/login', $data);
         }
 
         public function createUserSession($user){

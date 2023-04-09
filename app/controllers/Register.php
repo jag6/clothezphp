@@ -2,6 +2,14 @@
     class Register extends Controller {
         public function __construct(){
             $this -> userModel = $this -> model('User');
+
+            if(isLoggedInAndAdmin()){
+                redirect('admin');
+            }elseif(isLoggedIn()){
+                redirect('users');
+            }
+            
+            registerToken();
         }
 
         public function index(){
@@ -21,14 +29,10 @@
 
                 //process form
 
-                //register token
-                $register_token = bin2hex(random_bytes(32));
-
                 //sanitize post data
                 $_POST = filter_input_array(htmlspecialchars(INPUT_POST));
 
                 $form_data = [
-                    'register_token' => $register_token,
                     'first_name' => trim($_POST['first_name']),
                     'last_name' => trim($_POST['last_name']),
                     'username' => trim($_POST['username']),
@@ -85,8 +89,13 @@
                     die('No token');
                 }
 
+                //confirm tokens
+                if(!hash_equals($_SESSION['register_token'], $_POST['register_token'])){
+                    die('Tokens don\t match');
+                }
+
                 ////make sure errors are empty
-                if(empty($form_data['first_name_error']) && empty($form_data['last_name_error']) && empty($form_data['username_error']) && empty($form_data['email_error']) && empty($form_data['password_error']) && !empty($_POST['register_token'])){
+                if(empty($form_data['first_name_error']) && empty($form_data['last_name_error']) && empty($form_data['username_error']) && empty($form_data['email_error']) && empty($form_data['password_error']) && !empty($_POST['register_token']) && hash_equals($_SESSION['register_token'], $_POST['register_token'])){
                     //validated
 
                     //hash password
@@ -94,6 +103,7 @@
 
                     //register user
                     if($this -> userModel -> register($form_data)){
+                        unset($_SESSION['register_token']);
                         flash('register_success', 'Success! You\'re now registered and can log in');
                         redirect('/login');
                     }else {
@@ -107,11 +117,7 @@
             }else {
                 //initialize form
 
-                //register token
-                $register_token = bin2hex(random_bytes(32));
-
                 $form_data = [
-                    'register_token' => $register_token,
                     'first_name' => '',
                     'last_name' => '',
                     'username' => '',

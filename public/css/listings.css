@@ -53,10 +53,6 @@
     width: 70%;
 }
 
-.details-action {
-    width: 30%;
-}
-
 .details-info ul, .details-action ul {
     padding: 0;
     list-style: none;
@@ -82,17 +78,36 @@
 }
 
 .details-action {
+    width: 30%;
     background-color: #e5e5e5;
     border-radius: 20px;
     padding: 1rem 2%;
 }
 
-.details-action li:nth-child(3), .details-action li:nth-child(4) {
+.details-action input {
+    font-size: 16px;
+    line-height: 24px;
+    padding: .25rem .5rem;
+    width: 50px;
+    margin-bottom: 1rem;
+}
+
+.details-action li:nth-child(3) {
     margin-top: 1rem;
 }
 
 .details-action li:nth-child(4) {
     margin-top: .5rem;
+}
+
+.details-action form {
+    display: flex;
+    flex-direction: column;
+}
+
+.details-action .invalid {
+    font-size: 16px;
+    line-height: 24px;
 }
 
 .details-action li div form, .details-action form button {
@@ -229,5 +244,9 @@
 
     .all-reviews {
         margin-top: 4rem;
+    }
+
+    .details-action {
+        padding: 1rem 5%;
     }
 }

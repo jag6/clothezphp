@@ -70,7 +70,7 @@
                     <li><a href='<?php echo URLROOT; ?>/login'>LOGIN</a></li>
                 <?php endif; ?>
                 <li>
-                    <a href='<?php echo URLROOT; ?>/favorites'>
+                    <a href='<?php echo URLROOT; ?>/wishlist'>
                         <div class='header-cf'>
                             <i class="fa-solid fa-heart"></i>
                         </div>

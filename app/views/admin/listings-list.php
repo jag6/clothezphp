@@ -38,7 +38,7 @@
                                 <td><?php echo $listing -> price; ?></td>
                                 <td><?php echo $listing -> count_in_stock; ?></td>
                                 <td>
-                                    <a href="<?php echo URLROOT; ?>/admin/listing/edit/<?php echo $listing -> _id; ?>" class="edit-btn">Edit</a>
+                                    <a href="<?php echo URLROOT; ?>/admin/listing/edit/<?php echo $listing -> id; ?>" class="edit-btn">Edit</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -71,7 +71,7 @@
                                 <td><?php echo $listing -> price; ?></td>
                                 <td><?php echo $listing -> count_in_stock; ?></td>
                                 <td>
-                                    <a href="<?php echo URLROOT; ?>/admin/listing/edit/<?php echo $listing -> _id; ?>" class="edit-btn">Edit</a>
+                                    <a href="<?php echo URLROOT; ?>/admin/listing/edit/<?php echo $listing -> id; ?>" class="edit-btn">Edit</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -104,7 +104,7 @@
                                 <td><?php echo $listing -> price; ?></td>
                                 <td><?php echo $listing -> count_in_stock; ?></td>
                                 <td>
-                                    <a href="<?php echo URLROOT; ?>/admin/listing/edit/<?php echo $listing -> _id; ?>" class="edit-btn">Edit</a>
+                                    <a href="<?php echo URLROOT; ?>/admin/listing/edit/<?php echo $listing -> id; ?>" class="edit-btn">Edit</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

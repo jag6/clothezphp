@@ -10,7 +10,7 @@
             <label for="password">Password</label>
             <input type="password" name="password" class="<?php echo (!empty($form_data['password_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['password']; ?>">   
             <span class="invalid span-invalid"><?php echo $form_data['password_error']; ?></span> 
-            <input type="hidden" name="login_token" value="<?php echo $form_data['login_token']; ?>">
+            <input type="hidden" name="login_token" value="<?php echo $_SESSION['login_token']; ?>">
             <button aria-label="Login Button" type="submit" class="primary">SUBMIT</button>    
             <div>
                 <p>New User?</p><a href="<?php echo URLROOT; ?>/register"><span>Create your account</span></a>

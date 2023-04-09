@@ -124,6 +124,17 @@
             return $results;
         }
 
+        //id
+        public function getListingsById($listings){
+            $this -> db -> query('SELECT * FROM listings WHERE id = :listings');
+            //bind value
+            $this -> db -> bind(':listings', $listings);
+
+            $results = $this -> db -> resultSet();
+
+            return $results;
+        }
+
 
         //GET LISTING
 
@@ -132,6 +143,17 @@
             $this -> db -> query('SELECT * FROM listings WHERE slug = :slug');
             //bind value
             $this -> db -> bind(':slug', $slug);
+
+            $row = $this -> db -> single();
+
+            return $row;
+        }
+
+        //id
+        public function getListingById($id){
+            $this -> db -> query('SELECT * FROM listings WHERE id = :id');
+            //bind value
+            $this -> db -> bind(':id', $id);
 
             $row = $this -> db -> single();
 

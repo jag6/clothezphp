@@ -28,7 +28,7 @@
                 <input type="password" name="password" class="<?php echo (!empty($form_data['password_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['password']; ?>">   
                 <span class="invalid span-invalid"><?php echo $form_data['password_error']; ?></span> 
             </div>
-            <input type="hidden" name="register_token" value="<?php echo $form_data['register_token']; ?>">
+            <input type="hidden" name="register_token" value="<?php echo $_SESSION['register_token']; ?>">
             <button aria-label="Login Button" type="submit" class="primary">REGISTER</button>    
             <div>
                 <p>Already have an account?</p><a href="<?php echo URLROOT; ?>/login"><span>Log In</span></a>

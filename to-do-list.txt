@@ -1,3 +1,7 @@
-1. Create user
-2. Test out cart
-    -fix cart page
+1. Listings
+    - edit
+    - delete
+
+2. Cart
+    - update quantity
+    - remove from cart

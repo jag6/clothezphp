@@ -129,30 +129,34 @@
                 </div>
                 <div class="details-action">
                     <ul>
-                        <li>
-                        Price: $<?php echo $data['listing'] -> price; ?>
-                        </li>
+                        <li>Price: $<?php echo $data['listing'] -> price; ?></li>
                         <li>
                         Status: <?php echo $data['listing'] -> count_in_stock > 0 ? '<span class="success">In Stock</span>' : '<span class="error">Unavailable</span>'; ?>
                         </li>
-                        <?php if(isset($_SESSION['user_id'])) : ?>
+                        <?php if($data['listing'] -> count_in_stock == 0 ) : ?>
+                        <?php else : ?>
                             <li>
                                 <div id="add-to-cart-btn" class="fw primary bold">
-                                    <form action="<?php echo URLROOT;?>/addToCart/<?php echo $data['listing'] -> id; ?>">
-                                    <button aria-label="Add to Cart Button" type="submit">ADD TO CART</button>
+                                    <form action="<?php echo URLROOT;?>/listing/<?php echo $data['listing'] -> slug; ?>" method="post">
+                                        <input type="hidden" name="id" value="<?php echo $data['listing'] -> id?>">
+                                        <input type="hidden" name="name" value="<?php echo $data['listing'] -> name?>">
+                                        <input type="hidden" name="slug" value="<?php echo $data['listing'] -> slug?>">
+                                        <input type="hidden" name="image_main" value="<?php echo $data['listing'] -> image_main?>">
+                                        <input type="hidden" name="price" value="<?php echo $data['listing'] -> price?>">
+                                        <label for="quantity">Quantity</label>
+                                        <input type="text" name="quantity" inputmode="numeric" pattern="[0-9]*" class="<?php echo (!empty($form_data['quantity_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['quantity']; ?>">
+                                        <span class="invalid span-invalid"><?php echo $form_data['quantity_error']; ?></span> 
+                                        <button aria-label="Add to Cart Button" type="submit">ADD TO CART</button>
                                     </form>
                                 </div>
                             </li>
                             <li>
-                                <div id="add-to-fav-btn" class="fw primary bold">
-                                    <form action="<?php echo URLROOT;?>/addToFavorites/<?php echo $data['listing'] -> id; ?>">
-                                        <button aria-label="Add to Favorites Button" type="submit">ADD TO FAVORITES</button>
+                                <div id="add-to-wl-btn" class="fw primary bold">
+                                    <form action="<?php echo URLROOT;?>/listing/addToWishlist/<?php echo $data['listing'] -> id; ?>" method="post">
+                                        <input type="hidden" name="id" value="<?php echo $data['listing'] -> id?>">
+                                        <button aria-label="Add to Wishlist Button" type="submit">ADD TO WISHLIST</button>
                                     </form>
                                 </div>
-                            </li>
-                        <?php else : ?>
-                            <li class="text-align">
-                                <a class="link-span" href="<?php echo URLROOT; ?>/login">Please Log In <span>HERE</span> to Add to Cart or Favorites</a>
                             </li>
                         <?php endif; ?>
                     </ul>

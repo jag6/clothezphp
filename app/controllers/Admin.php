@@ -143,22 +143,22 @@
                 }
 
                 //confirm tokens
-                if(hash_equals($_SESSION['token'], $_POST['token'])){
-                    //proceed to process form data
-                    if(empty($form_data['name_error']) && empty($form_data['slug_error']) && empty($form_data['description_error']) && empty($form_data['gender_error']) && empty($form_data['gender_slug_error']) && empty($form_data['category_error']) && empty($form_data['type_error']) && empty($form_data['image_main_error']) && empty($form_data['price_error']) && empty($form_data['count_in_stock_error']) && !empty($_POST['token'])){
-                        //validated
-                        if($this -> listingModel -> saveListing($form_data)){
-                            flash('listing_success', 'Listing Saved!');
-                            redirect('admin/listings-list');
-                        }else {
-                            die('Something went wrong');
-                        }
+                if(!hash_equals($_SESSION['token'], $_POST['token'])){
+                    die('Tokens don\'t match');
+                }
+
+                //send post if no errors
+                if(empty($form_data['name_error']) && empty($form_data['slug_error']) && empty($form_data['description_error']) && empty($form_data['gender_error']) && empty($form_data['gender_slug_error']) && empty($form_data['category_error']) && empty($form_data['type_error']) && empty($form_data['image_main_error']) && empty($form_data['price_error']) && empty($form_data['count_in_stock_error']) && !empty($_POST['token']) && hash_equals($_SESSION['token'], $_POST['token'])){
+                    //validated
+                    if($this -> listingModel -> saveListing($form_data)){
+                        flash('listing_success', 'Listing Saved!');
+                        redirect('admin/listings-list');
                     }else {
-                        //load view with errors
-                        $this -> view('admin/listings-list', $data, $form_data);
+                        die('Something went wrong');
                     }
                 }else {
-                    die('Sorry, something went wrong. Please try again');
+                    //load view with errors
+                    $this -> view('admin/listings-list', $data, $form_data);
                 }
 
             }else {
@@ -266,22 +266,22 @@
                 }
 
                 //confirm tokens
-                if(hash_equals($_SESSION['token'], $_POST['token'])){
-                    //proceed to process form data
-                    if(empty($form_data['image_error']) && empty($form_data['image_description_error']) && empty($form_data['text_error']) && !empty($_POST['token'])){
-                        //validated
-                        if($this -> bannerModel -> saveBanner($form_data)){
-                            flash('banner_success', 'Banner Saved!');
-                            redirect('admin/banners-list');
-                        }else {
-                            die('Something went wrong');
-                        }
+                if(!hash_equals($_SESSION['token'], $_POST['token'])){
+                    die('Tokens don\'t match');
+                }
+
+                //send post if no errors
+                if(empty($form_data['image_error']) && empty($form_data['image_description_error']) && empty($form_data['text_error']) && !empty($_POST['token']) && hash_equals($_SESSION['token'], $_POST['token'])){
+                    //validated
+                    if($this -> bannerModel -> saveBanner($form_data)){
+                        flash('banner_success', 'Banner Saved!');
+                        redirect('admin/banners-list');
                     }else {
-                        //load view with errors
-                        $this -> view('admin/listings-list', $data, $form_data);
+                        die('Something went wrong');
                     }
                 }else {
-                    die('Sorry, something went wrong. Please try again');
+                    //load view with errors
+                    $this -> view('admin/banners-list', $data, $form_data);
                 }
 
             }else {
