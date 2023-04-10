@@ -27,11 +27,7 @@
 
                     $form_data = [
                         'id' => trim($_POST['id']), 
-                        'name' => trim($_POST['name']), 
-                        'slug' => trim($_POST['slug']),
-                        'image_main' => trim($_POST['image_main']), 
                         'quantity' => trim($_POST['quantity']),
-                        'price' => trim($_POST['price']),
                         'quantity_error' => ''
                     ];
 
@@ -46,25 +42,18 @@
                     if(empty($form_data['quantity_error'])){
                         //check for listing in db
                         $listing = $this -> listingModel -> getListingById($form_data['id']);
-                        if($listing){
-                            if(isset($_SESSION['cart']) && is_array($_SESSION['cart'])){
-                                //update quantity if already in cart
-                                $repeat_item = $this -> listingModel -> getListingById($form_data['id']);
-                                if($repeat_item == $_SESSION['cart']['form_id']){
-                                    $_SESSION['cart']['quantity'] += $form_data['quantity'];
-                                }else {
-                                    //add listing if not in cart
-                                    $_SESSION['cart'][$form_data['id']] = array('id' => $form_data['id'], 'name' => $form_data['name'], 'slug' => $form_data['slug'], 'image_main' => $form_data['image_main'], 'price' => $form_data['price'], 'quantity' => $form_data['quantity']);
-                                }
-                            }else {
-                                //add listing to empty cart
-                                $_SESSION['cart'] = array();
-                                $_SESSION['cart'][$form_data['id']] = array('id' => $form_data['id'], 'name' => $form_data['name'], 'slug' => $form_data['slug'], 'image_main' => $form_data['image_main'], 'price' => $form_data['price'], 'quantity' => $form_data['quantity']);
-                            }
-                            redirect('cart');
-                        }else {
+                        if(!$listing){
                             die('No listing');
+                        }    
+                        if($listing == $_SESSION['cart']['form_id']){
+                            //update quantity if already in cart
+                            $_SESSION['cart']['quantity'] += $form_data['quantity'];
+                                          
+                        }else {
+                            //add listing if not in cart  
+                            $_SESSION['cart'][$form_data['id']] = ['id' => $form_data['id'], 'name' => $listing -> name, 'slug' => $listing -> slug, 'image_main' => $listing -> image_main, 'price' => $listing -> price, 'quantity' => (int) $form_data['quantity']];
                         }
+                        redirect('cart');
                     }else {
                         //load view with errors
                         $this -> view('store/listing', $data, $form_data);
@@ -76,10 +65,6 @@
 
                     $form_data = [
                         'id' => '',
-                        'name' => '', 
-                        'slug' => '',
-                        'image_main' => '', 
-                        'price' => '',
                         'quantity' => '',
                         'quantity_error' => ''
                     ];
@@ -92,6 +77,27 @@
 
         public function addToWishlist($id){
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                //process form
+
+                //sanitize post data
+                $form_data = [
+                    'id' => trim(htmlspecialchars($_POST['id']))
+                ];
+
+                //check for listing in db
+                $listing = $this -> listingModel -> getListingById($form_data['id']);
+                if(!$listing){
+                    die('No listing');
+                }
+
+                //add listing to wishlist
+                $_SESSION['wishlist'][$listing -> id] = ['id' => $listing -> id, 'name' => $listing -> name, 'slug' => $listing -> slug, 'image_main' => $listing -> image_main, 'price' => $listing -> price];
+
+                redirect('wishlist');
+            }
+
+            else {
+                redirect('listing');
             }
         }
 

@@ -208,6 +208,27 @@ small {
 }
 
 
+/*LINK SPAN*/
+
+.link-span {
+    text-align: center;
+    font-size: 18px;
+    color: #111;
+}
+
+.link-span span {
+    font-size: 20px;
+    border-bottom: 2px solid transparent;
+    font-weight: 700;
+    color: #111;
+}
+
+.link-span span:hover {
+    border-bottom: 2px solid #111;
+    transition: .2s ease-in-out;
+}
+
+
 /*MARGIN + PADDING*/
 
 .margin-top-1 {

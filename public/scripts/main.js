@@ -84,3 +84,30 @@ if(document.querySelector('#open-popup')) {
         openPU.style.display = 'flex';
     });
 }
+
+
+//wishlist
+if(document.querySelector('.wishlist-delete-btn')) {
+    //open delete window
+    document.querySelectorAll('.wishlist-delete-btn').forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            const name = e.target.getAttribute('name');
+            if(!confirm('Remove ' + name + ' from Wishlist?')){
+                e.preventDefault();
+            }
+        });
+    });
+}
+
+//cart
+if(document.querySelector('.cart-delete-btn')) {
+    //open delete window
+    document.querySelectorAll('.cart-delete-btn').forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            const name = e.target.getAttribute('name');
+            if(!confirm('Remove ' + name + ' from Cart?')){
+                e.preventDefault();
+            }
+        });
+    });
+}

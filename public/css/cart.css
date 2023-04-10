@@ -136,6 +136,13 @@
 }
 
 
+/*WISHLIST*/
+
+.wishlist-container .cart-list {
+    width: 100%;
+}
+
+
 @media only screen and (max-width: 900px) {   
     .cart-list {
         margin-right: 0%;

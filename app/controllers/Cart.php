@@ -23,4 +23,26 @@
 
             $this -> view('store/cart', $data);
         }
+
+        public function delete($id){
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                $listing = $this -> listingModel -> getListingById($id);
+
+                if(!$listing){
+                    die('No listing');
+                }
+
+                if(isset($_SESSION['cart'][$listing -> id])){
+                    unset($_SESSION['cart'][$listing -> id]);
+                    redirect('cart');
+                }else {
+                    die('Something went wrong');
+                }
+            }
+
+            else {
+                redirect('cart');
+            }
+        }
     }

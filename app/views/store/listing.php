@@ -139,12 +139,8 @@
                                 <div id="add-to-cart-btn" class="fw primary bold">
                                     <form action="<?php echo URLROOT;?>/listing/<?php echo $data['listing'] -> slug; ?>" method="post">
                                         <input type="hidden" name="id" value="<?php echo $data['listing'] -> id?>">
-                                        <input type="hidden" name="name" value="<?php echo $data['listing'] -> name?>">
-                                        <input type="hidden" name="slug" value="<?php echo $data['listing'] -> slug?>">
-                                        <input type="hidden" name="image_main" value="<?php echo $data['listing'] -> image_main?>">
-                                        <input type="hidden" name="price" value="<?php echo $data['listing'] -> price?>">
                                         <label for="quantity">Quantity</label>
-                                        <input type="text" name="quantity" inputmode="numeric" pattern="[0-9]*" class="<?php echo (!empty($form_data['quantity_error'])) ? 'invalid' : ''; ?>" value="<?php echo $form_data['quantity']; ?>">
+                                        <input type="text" name="quantity" inputmode="numeric" pattern="[0-9]*" class="<?php echo (!empty($form_data['quantity_error'])) ? 'invalid' : ''; ?>" value="<?php echo (empty($form_data['quantity'])) ? 1 : $form_data['quantity']; ?>">
                                         <span class="invalid span-invalid"><?php echo $form_data['quantity_error']; ?></span> 
                                         <button aria-label="Add to Cart Button" type="submit">ADD TO CART</button>
                                     </form>
@@ -182,7 +178,7 @@
                         </form>
                     <?php else : ?>
                         <div>
-                            <a class="link-span" href="<?php echo URLROOT; ?>/login">Please Log In <span class="bold">HERE</span> to write a review</a>
+                            <h2><a class="link-span" href="<?php echo URLROOT; ?>/login">Please Log In <span class="bold">HERE</span> to write a review</a></h2>
                         </div>  
                     <?php endif; ?>
                 </section>
