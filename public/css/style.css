@@ -297,7 +297,7 @@ aside {
     background: rgba(0, 0, 0, .5);
     z-index: 4;
     top: 104px;
-    bottom: 56px;
+    bottom: 0;
 }
 
 .sidebar-body {

@@ -9,7 +9,7 @@
         public function index($slug){
             $listing = $this -> listingModel -> getListingBySlug($slug);
 
-            //redirect to 404 if no listing in db
+            //re-direct to 404 if no listing in db
             if(!$listing){
                 $this -> view('pages/404');
             }

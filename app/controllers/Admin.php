@@ -1,9 +1,8 @@
 <?php 
     class Admin extends Controller {
         public function __construct(){
-            if(!isLoggedInAndAdmin()){
-                redirect('');
-            }
+            //re-direct to homepage if not admin;
+            notAdminRedirect();
 
             //set models
             $this -> userModel = $this -> model('User');

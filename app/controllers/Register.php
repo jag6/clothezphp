@@ -3,12 +3,10 @@
         public function __construct(){
             $this -> userModel = $this -> model('User');
 
-            if(isLoggedInAndAdmin()){
-                redirect('admin');
-            }elseif(isLoggedIn()){
-                redirect('users');
-            }
-            
+            //re-direct away from page if logged in
+            noLoginRegister();
+
+            //set post token
             registerToken();
         }
 

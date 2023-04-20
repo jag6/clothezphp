@@ -1,9 +1,10 @@
 <?php 
     class Users extends Controller {
         public function __construct(){
-            if(!isLoggedIn()){
-                redirect('');
-            }
+            //re-direct if not authenticated
+            notUserRedirect();
+
+            //set model
             $this -> userModel = $this -> model('User');
         }
 

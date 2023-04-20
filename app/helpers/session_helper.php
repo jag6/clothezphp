@@ -29,22 +29,44 @@
         }
     }
 
-    function isLoggedIn(){
-        if(isset($_SESSION['user_id'])){
-            return true;
-        }else {
-            return false;
+
+    //check authentication
+    function isLoggedInUser(){
+        $user = isset($_SESSION['user_id']) && $_SESSION['user_status'] == '';
+        return $user;
+    }
+
+    function isLoggedInAdmin(){
+        $admin = isset($_SESSION['user_id']) && $_SESSION['user_status'] == 'admin';
+        return $admin;
+    }
+
+
+    //re-direct unless authenticated 
+    function notAdminRedirect(){
+        if(!isLoggedInAdmin()){
+            redirect('');
         }
     }
 
-    function isLoggedInAndAdmin(){
-        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 'admin'){
-            return true;
-        }else {
-            return false;
+    function notUserRedirect(){
+        if(!isLoggedInUser()){
+            redirect('');
         }
     }
 
+
+    //re-direct away from login and register pages if authenticated
+    function noLoginRegister(){
+        if(isLoggedInAdmin()){
+            redirect('admin');
+        }elseif(isLoggedInUser()){
+            redirect('users');
+        }
+    }
+
+    
+    //post tokens for register and login pages
     function registerToken(){
         if(empty($_SESSION['register_token'])){
             $_SESSION['register_token'] = bin2hex(random_bytes(32));

@@ -49,7 +49,7 @@
         </div>
         <div id="header-other" class="header-other">
             <ul id="user-links" class='user-links'>
-                <?php if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 'admin') : ?>
+                <?php if(isLoggedInAdmin()) : ?>
                     <li>
                         <a href='<?php echo URLROOT; ?>/admin'>
                             <div class='header-cf'>
@@ -57,7 +57,7 @@
                             </div>
                         </a>
                     </li>
-                <?php elseif(isset($_SESSION['user_id'])) : ?>
+                <?php elseif(isLoggedInUser()) : ?>
                     <li>
                         <a href='<?php echo URLROOT; ?>/users'>
                             <div class='header-cf'>

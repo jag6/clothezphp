@@ -1,6 +1,8 @@
 <?php   
     class Cart extends Controller {
         public function __construct(){
+            
+            //set model
             $this -> listingModel = $this -> model('ListingItem');
         }
 
