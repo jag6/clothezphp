@@ -4,6 +4,9 @@
 
             //set model
             $this -> listingModel = $this -> model('ListingItem');
+
+            //set post token
+            csrfToken();
         }
 
         public function index($slug){

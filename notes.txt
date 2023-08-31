@@ -26,3 +26,9 @@
 
     Header set Referrer-Policy: strict-origin-when-cross-origin
 </IfModule>
+
+
+Redirect 301 /clothez/admin/listingslist /clothez/admin/listings-list
+    Redirect 301 /clothez/admin/listingedit /clothez/admin/listing-edit
+    Redirect 301 /clothez/admin/bannerslist /clothez/admin/banners-list
+    Redirect 301 /clothez/admin/banneredit /clothez/admin/banner-edit

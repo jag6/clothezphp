@@ -66,15 +66,9 @@
     }
 
     
-    //post tokens for register and login pages
-    function registerToken(){
-        if(empty($_SESSION['register_token'])){
-            $_SESSION['register_token'] = bin2hex(random_bytes(32));
-        }
-    }
-
-    function loginToken(){
-        if(empty($_SESSION['login_token'])){
-            $_SESSION['login_token'] = bin2hex(random_bytes(32));
+    //post token for register, login, add to cart, add to wishlist
+    function csrfToken(){
+        if(empty($_SESSION['csrf_token'])){
+            $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
         }
     }

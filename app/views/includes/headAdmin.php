@@ -8,10 +8,11 @@
     <!-- Title -->
     <title>Admin - <?php echo $data['title']; ?></title>
     <!-- CSS + Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/style.css">
-    <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/headerFooter.css">
     <link rel="stylesheet" href="<?php echo URLROOT; ?>/css/admin.css">
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo URLROOT ;?>/favicon/apple-touch-icon.png">

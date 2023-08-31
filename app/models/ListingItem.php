@@ -8,6 +8,43 @@
 
 
         //GET ... LISTINGS
+        
+        //search by
+        public function getQListings($q){
+            $this -> db -> query('SELECT * FROM listings WHERE name = :q ORDER BY listings.name DESC');
+            //bind value
+            $this -> db -> bind(':q', $q);
+
+            $results = $this -> db -> resultSet();
+
+            return $results;
+        }
+        // $this -> db -> query("SELECT * FROM listings WHERE CONCAT(name, ' ', description, ' ', category, ' ', type, ' ', gender) LIKE '%" . ':q' . "%' ORDER BY listings.name DESC");
+
+        //category without duplicates
+        public function getCategories(){
+            $this -> db -> query('SELECT DISTINCT category FROM listings');
+
+            $results = $this -> db -> resultSet();
+
+            return $results;
+        }
+        //type without duplicates
+        public function getTypes(){
+            $this -> db -> query('SELECT DISTINCT type FROM listings');
+
+            $results = $this -> db -> resultSet();
+
+            return $results;
+        }
+        //gender without duplicates
+        public function getGenders(){
+            $this -> db -> query('SELECT DISTINCT gender FROM listings');
+
+            $results = $this -> db -> resultSet();
+
+            return $results;
+        }
 
         //men's
         public function getMListings(){
@@ -27,8 +64,8 @@
             return $results;
         }
 
-         //unisex
-         public function getUListings(){
+        //unisex
+        public function getUListings(){
             $this -> db -> query('SELECT * FROM listings WHERE gender = "Unisex" ORDER BY listings.created_at DESC');
 
             $results = $this -> db -> resultSet();
@@ -38,7 +75,7 @@
 
         //gender slug
         public function getListingsByGenderSlug($gender_slug){
-            $this -> db -> query('SELECT * FROM listings where gender_slug = :gender_slug');
+            $this -> db -> query('SELECT * FROM listings WHERE gender_slug = :gender_slug');
             //bind value
             $this -> db -> bind(':gender_slug', $gender_slug);
 

@@ -43,8 +43,8 @@
                 <i class="fa-solid fa-bars-staggered"></i>
             </button>
             <form action="<?php echo URLROOT; ?>/search" method="get" class="search-form">
-                <input type="text" name="q" placeholder="Search...">
-            <button type="submit" aria-label="Search Button"><i class="fa fa-search"></i></button>
+                <input type="search" name="q" id="q" placeholder="Search...">
+                <button type="submit" aria-label="Search Button"><i class="fa fa-search"></i></button>
             </form>
         </div>
         <div id="header-other" class="header-other">
@@ -91,8 +91,8 @@
         <button type="submit" aria-label="Sidebar Open Button" id="sidebar-open-btn" class="sidebar-open-btn">
             <i class="fa-solid fa-bars-staggered"></i>
         </button>
-        <form class="search-form">
-            <input type="text" name="q" placeholder="Search...">
+        <form action="<?php echo URLROOT; ?>/search" method="get" class="search-form">
+            <input type="search" name="q" id="q" placeholder="Search...">
             <button type="submit" aria-label="Search Button"><i class="fa fa-search"></i></button>
         </form>
     </div>

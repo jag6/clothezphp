@@ -142,6 +142,7 @@
                                         <label for="quantity">Quantity</label>
                                         <input type="text" name="quantity" inputmode="numeric" pattern="[0-9]*" class="<?php echo (!empty($form_data['quantity_error'])) ? 'invalid' : ''; ?>" value="<?php echo (empty($form_data['quantity'])) ? 1 : $form_data['quantity']; ?>">
                                         <span class="invalid span-invalid"><?php echo $form_data['quantity_error']; ?></span> 
+                                        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                                         <button aria-label="Add to Cart Button" type="submit">ADD TO CART</button>
                                     </form>
                                 </div>
@@ -174,6 +175,7 @@
                             </select>
                             <label for="comment">Comment</label>
                             <textarea required name="comment" id="comment" cols="30" rows="5"></textarea>
+                            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                             <button type="submit" class="primary bold">SUBMIT</button>
                         </form>
                     <?php else : ?>

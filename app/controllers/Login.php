@@ -7,7 +7,7 @@
             noLoginRegister();
 
             //set post token
-            loginToken();
+            csrfToken();
         }
 
         public function index(){
@@ -54,22 +54,22 @@
                 }
 
                 //validate login token
-                if(empty($_POST['login_token'])){
+                if(empty($_POST['csrf_token'])){
                     die('No token');
                 }
 
                 //confirm tokens
-                if(!hash_equals($_SESSION['login_token'], $_POST['login_token'])){
+                if(!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])){
                     die('Tokens don\'t match');
                 }
 
                 //make sure errors are empty
-                if(empty($form_data['email_error']) && empty($form_data['password_error']) && !empty($_POST['login_token']) && hash_equals($_SESSION['login_token'], $_POST['login_token'])){
+                if(empty($form_data['email_error']) && empty($form_data['password_error']) && !empty($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])){
                     //check and set logged in user
                     $loggedInUser = $this -> userModel -> login($form_data['email'], $form_data['password']);
                     if($loggedInUser){
                         //create session
-                        unset($_SESSION['login_token']);
+                        unset($_SESSION['csrf_token']);
                         $this -> createUserSession
                         ($loggedInUser);
                     }else {
